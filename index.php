@@ -11,7 +11,6 @@
 		}
 		.tabs div
 		{
-			padding: 5px;
 			box-sizing: border-box;
 		}
 		.contents div
@@ -27,6 +26,12 @@
 			border-left: 2px solid lightblue;
 			border-top: 2px solid lightblue;
 			border-right: 2px solid lightblue;
+			padding: 3px 3px 5px 3px ;
+		}
+		.inactive
+		{
+			border-bottom: 2px solid lightblue;
+			padding: 5px 5px 3px 5px;
 		}
 	</style>
 </head>
@@ -46,6 +51,10 @@
 
 <script>
 	document.querySelector( '.tabs' ).querySelector( 'div' ).classList.add( 'active' );
+	for ( let i = 1; i < document.querySelector( '.tabs' ).querySelectorAll( 'div' ).length; i++ )
+	{
+		document.querySelector( '.tabs' ).querySelectorAll( 'div' )[ i ].classList.add( 'inactive' );
+	}
 	for ( let i = 0; i < document.querySelector( '.tabs' ).querySelectorAll( 'div' ).length; i++ )
 	{
 		// Add Data Attributes
@@ -56,6 +65,7 @@
 		document.querySelector( '.tabs' ).querySelectorAll( 'div' )[ i ].onclick = function()
 		{
 			// Remove active class
+			this.classList.remove( 'inactive' );
 			this.classList.add( 'active' );
 			// Hide everything except that num valued element
 			for ( let j = 0; j < document.querySelector( '.contents' ).querySelectorAll( 'div' ).length; j++ )
@@ -68,6 +78,7 @@
 				{
 					// Remove active class
 					document.querySelector( '.tabs' ).querySelectorAll( 'div' )[ j ].classList.remove( 'active' );
+					document.querySelector( '.tabs' ).querySelectorAll( 'div' )[ j ].classList.add( 'inactive' );
 					document.querySelector( '.contents' ).querySelectorAll( 'div' )[ j ].style.display = 'none';
 				}
 			}
