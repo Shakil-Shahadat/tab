@@ -23,15 +23,15 @@
 		}
 		.active
 		{
-			border-left: 2px solid lightblue;
-			border-top: 2px solid lightblue;
-			border-right: 2px solid lightblue;
-			padding: 3px 3px 5px 3px ;
+			border-left: 1px solid lightgray;
+			border-top: 1px solid lightgray;
+			border-right: 1px solid lightgray;
+			padding: 4px 4px 5px 4px ;
 		}
 		.inactive
 		{
-			border-bottom: 2px solid lightblue;
-			padding: 5px 5px 3px 5px;
+			border-bottom: 1px solid lightgray;
+			padding: 5px 5px 4px 5px;
 		}
 	</style>
 </head>
