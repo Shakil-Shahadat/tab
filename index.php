@@ -5,18 +5,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Tab using JavaScript</title>
 	<style>
-		.tabs span
+		.tabs
+		{
+			display: flex;
+		}
+		.tabs div
 		{
 			padding: 5px;
 			box-sizing: border-box;
 		}
-		.contents span
+		.contents div
 		{
 			display: none;
 		}
-		.contents span:first-child
+		.contents div:first-child
 		{
-			display: inline;
+			display: block;
 		}
 		.active
 		{
@@ -24,48 +28,47 @@
 			border-top: 2px solid lightblue;
 			border-right: 2px solid lightblue;
 		}
-		/* use border box */
 	</style>
 </head>
 <body>
 
 <div class="tabs">
-	<span>Tab 1</span>
-	<span>Tab 2</span>
-	<span>Tab 3</span>
+	<div>Tab 1</div>
+	<div>Tab 2</div>
+	<div>Tab 3</div>
 </div>
 
 <div class="contents">
-	<span>Tab 1 content: Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, culpa!</span>
-	<span>Tab 2 content: Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Sequi, officiis.</span>
-	<span>Tab 3 content: Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Numquam, cupiditate.</span>
+	<div>Tab 1 content: Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, culpa!</div>
+	<div>Tab 2 content: Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Sequi, officiis.</div>
+	<div>Tab 3 content: Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Numquam, cupiditate.</div>
 </div>
 
 <script>
-	document.querySelector( '.tabs' ).querySelector( 'span' ).classList.add( 'active' );
-	for ( let i = 0; i < document.querySelector( '.tabs' ).querySelectorAll( 'span' ).length; i++ )
+	document.querySelector( '.tabs' ).querySelector( 'div' ).classList.add( 'active' );
+	for ( let i = 0; i < document.querySelector( '.tabs' ).querySelectorAll( 'div' ).length; i++ )
 	{
 		// Add Data Attributes
-		document.querySelector( '.tabs' ).querySelectorAll( 'span' )[ i ].dataset.num = i;
-		document.querySelector( '.contents' ).querySelectorAll( 'span' )[ i ].dataset.num = i;
+		document.querySelector( '.tabs' ).querySelectorAll( 'div' )[ i ].dataset.num = i;
+		document.querySelector( '.contents' ).querySelectorAll( 'div' )[ i ].dataset.num = i;
 
 		// Add events
-		document.querySelector( '.tabs' ).querySelectorAll( 'span' )[ i ].onclick = function()
+		document.querySelector( '.tabs' ).querySelectorAll( 'div' )[ i ].onclick = function()
 		{
 			// Remove active class
 			this.classList.add( 'active' );
 			// Hide everything except that num valued element
-			for ( let j = 0; j < document.querySelector( '.contents' ).querySelectorAll( 'span' ).length; j++ )
+			for ( let j = 0; j < document.querySelector( '.contents' ).querySelectorAll( 'div' ).length; j++ )
 			{
 				if ( j == this.dataset.num )
 				{
-					document.querySelector( '.contents' ).querySelectorAll( 'span' )[ j ].style.display = 'inline';
+					document.querySelector( '.contents' ).querySelectorAll( 'div' )[ j ].style.display = 'block';
 				}
 				else
 				{
 					// Remove active class
-					document.querySelector( '.tabs' ).querySelectorAll( 'span' )[ j ].classList.remove( 'active' );
-					document.querySelector( '.contents' ).querySelectorAll( 'span' )[ j ].style.display = 'none';
+					document.querySelector( '.tabs' ).querySelectorAll( 'div' )[ j ].classList.remove( 'active' );
+					document.querySelector( '.contents' ).querySelectorAll( 'div' )[ j ].style.display = 'none';
 				}
 			}
 		}
