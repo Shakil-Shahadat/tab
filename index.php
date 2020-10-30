@@ -44,9 +44,9 @@
 </div>
 
 <div class="contents">
-	<div>Tab 1 content: Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, culpa!</div>
-	<div>Tab 2 content: Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Sequi, officiis.</div>
-	<div>Tab 3 content: Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Numquam, cupiditate.</div>
+	<div>Tab 1 content.</div>
+	<div>Tab 2 content.</div>
+	<div>Tab 3 content.</div>
 </div>
 
 <script>
