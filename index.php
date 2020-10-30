@@ -51,10 +51,12 @@
 
 <script>
 	document.querySelector( '.tabs' ).querySelector( 'div' ).classList.add( 'active' );
+
 	for ( let i = 1; i < document.querySelector( '.tabs' ).querySelectorAll( 'div' ).length; i++ )
 	{
 		document.querySelector( '.tabs' ).querySelectorAll( 'div' )[ i ].classList.add( 'inactive' );
 	}
+
 	for ( let i = 0; i < document.querySelector( '.tabs' ).querySelectorAll( 'div' ).length; i++ )
 	{
 		// Add Data Attributes
@@ -64,19 +66,17 @@
 		// Add events
 		document.querySelector( '.tabs' ).querySelectorAll( 'div' )[ i ].onclick = function()
 		{
-			// Remove active class
-			this.classList.remove( 'inactive' );
-			this.classList.add( 'active' );
 			// Hide everything except that num valued element
 			for ( let j = 0; j < document.querySelector( '.contents' ).querySelectorAll( 'div' ).length; j++ )
 			{
 				if ( j == this.dataset.num )
 				{
+					this.classList.remove( 'inactive' );
+					this.classList.add( 'active' );
 					document.querySelector( '.contents' ).querySelectorAll( 'div' )[ j ].style.display = 'block';
 				}
 				else
 				{
-					// Remove active class
 					document.querySelector( '.tabs' ).querySelectorAll( 'div' )[ j ].classList.remove( 'active' );
 					document.querySelector( '.tabs' ).querySelectorAll( 'div' )[ j ].classList.add( 'inactive' );
 					document.querySelector( '.contents' ).querySelectorAll( 'div' )[ j ].style.display = 'none';
