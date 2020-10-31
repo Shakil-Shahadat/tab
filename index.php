@@ -5,30 +5,30 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Tab using vanilla JavaScript</title>
 	<style>
-		.tabs
+		.sstab .tabs
 		{
 			display: flex;
 		}
-		.tabs div
+		.sstab .tabs div
 		{
 			box-sizing: border-box;
 		}
-		.contents div
+		.sstab .contents div
 		{
 			display: none;
 		}
-		.contents div:first-child
+		.sstab .contents div:first-child
 		{
 			display: block;
 		}
-		.active
+		.sstab .active
 		{
 			border-left: 1px solid lightgray;
 			border-top: 1px solid lightgray;
 			border-right: 1px solid lightgray;
 			padding: 4px 4px 5px 4px ;
 		}
-		.inactive
+		.sstab .inactive
 		{
 			border-bottom: 1px solid lightgray;
 			padding: 5px 5px 4px 5px;
@@ -37,16 +37,18 @@
 </head>
 <body>
 
-<div class="tabs">
-	<div>Tab 1</div>
-	<div>Tab 2</div>
-	<div>Tab 3</div>
-</div>
+<div class="sstab">
+	<div class="tabs">
+		<div>Tab 1</div>
+		<div>Tab 2</div>
+		<div>Tab 3</div>
+	</div>
 
-<div class="contents">
-	<div>Tab 1 content.</div>
-	<div>Tab 2 content.</div>
-	<div>Tab 3 content.</div>
+	<div class="contents">
+		<div>Tab 1 content.</div>
+		<div>Tab 2 content.</div>
+		<div>Tab 3 content.</div>
+	</div>
 </div>
 
 <script>
