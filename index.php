@@ -12,6 +12,7 @@
 		.sstab .tabs div
 		{
 			box-sizing: border-box;
+			cursor: pointer;
 		}
 		.sstab .contents div
 		{
