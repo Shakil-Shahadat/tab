@@ -51,37 +51,65 @@
 	</div>
 </div>
 
+<div class="sstab">
+	<div class="tabs">
+		<div>Tab 1</div>
+		<div>Tab 2</div>
+		<div>Tab 3</div>
+	</div>
+
+	<div class="contents">
+		<div>Tab 1 content</div>
+		<div>Tab 2 content</div>
+		<div>Tab 3 content</div>
+	</div>
+</div>
+
 <script>
-	document.querySelector( '.tabs' ).querySelector( 'div' ).classList.add( 'active' );
-
-	for ( let i = 1; i < document.querySelector( '.tabs' ).querySelectorAll( 'div' ).length; i++ )
+	let sstab = document.querySelectorAll( '.sstab' );
+	// Add active and inactive classes
+	for ( let i = 0; i < sstab.length; i++ )
 	{
-		document.querySelector( '.tabs' ).querySelectorAll( 'div' )[ i ].classList.add( 'inactive' );
-	}
+		// Add active class to first tab
+		sstab[ i ].querySelector( '.tabs' ).querySelector( 'div' ).classList.add( 'active' );
 
-	for ( let i = 0; i < document.querySelector( '.tabs' ).querySelectorAll( 'div' ).length; i++ )
-	{
-		// Add Data Attributes
-		document.querySelector( '.tabs' ).querySelectorAll( 'div' )[ i ].dataset.num = i;
-		document.querySelector( '.contents' ).querySelectorAll( 'div' )[ i ].dataset.num = i;
-
-		// Add events
-		document.querySelector( '.tabs' ).querySelectorAll( 'div' )[ i ].onclick = function()
+		// Add inactive class to other tabs
+		for ( let j = 1; j < sstab[ i ].querySelector( '.tabs' ).querySelectorAll( 'div' ).length; j++ )
 		{
-			// Hide everything except that num valued element
-			for ( let j = 0; j < document.querySelector( '.contents' ).querySelectorAll( 'div' ).length; j++ )
+			sstab[ i ].querySelector( '.tabs' ).querySelectorAll( 'div' )[ j ].classList.add( 'inactive' );
+		}
+
+		// Add events to each tab
+		for ( let j = 0; j < sstab[ i ].querySelector( '.tabs' ).querySelectorAll( 'div' ).length; j++ )
+		{
+			// Add Data Attributes
+			sstab[ i ].querySelector( '.tabs' ).querySelectorAll( 'div' )[ j ].dataset.num = j;
+			sstab[ i ].querySelector( '.contents' ).querySelectorAll( 'div' )[ j ].dataset.num = j;
+
+			// Add events
+			sstab[ i ].querySelector( '.tabs' ).querySelectorAll( 'div' )[ j ].onclick = function()
 			{
-				if ( j == this.dataset.num )
+				// Hide everything except that num valued element
+				for ( let k = 0; k < this.parentElement.querySelectorAll( 'div' ).length; k++ )
 				{
-					this.classList.remove( 'inactive' );
-					this.classList.add( 'active' );
-					document.querySelector( '.contents' ).querySelectorAll( 'div' )[ j ].style.display = 'block';
-				}
-				else
-				{
-					document.querySelector( '.tabs' ).querySelectorAll( 'div' )[ j ].classList.remove( 'active' );
-					document.querySelector( '.tabs' ).querySelectorAll( 'div' )[ j ].classList.add( 'inactive' );
-					document.querySelector( '.contents' ).querySelectorAll( 'div' )[ j ].style.display = 'none';
+					if ( k == this.dataset.num )
+					{
+						this.classList.remove( 'inactive' );
+						this.classList.add( 'active' );
+
+						// Show the corresponding content
+						this.parentElement.parentElement.querySelector( '.contents' ).querySelectorAll( 'div' )[ k ].style.display = 'block';
+						// div	.tabs		.sstab
+					}
+					else
+					{
+						this.parentElement.querySelectorAll( 'div' )[ k ].classList.remove( 'active' );
+						this.parentElement.querySelectorAll( 'div' )[ k ].classList.add( 'inactive' );
+						// div	.tabs
+
+						// Hide the corresponding content
+						this.parentElement.parentElement.querySelector( '.contents' ).querySelectorAll( 'div' )[ k ].style.display = 'none';
+					}
 				}
 			}
 		}
