@@ -16,6 +16,7 @@
 		.sstab .contents div
 		{
 			display: none;
+			animation: fadeEffect 1s;
 		}
 		.sstab .contents div:first-child
 		{
@@ -32,6 +33,11 @@
 		{
 			border-bottom: 1px solid lightgray;
 			padding: 5px 5px 4px 5px;
+		}
+		@keyframes fadeEffect
+		{
+			from { opacity: 0; }
+			to { opacity: 1; }
 		}
 	</style>
 </head>
