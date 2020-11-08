@@ -42,6 +42,11 @@
 			from { opacity: 0; }
 			to { opacity: 1; }
 		}
+		body
+		{
+			width: 960px;
+			margin: auto;
+		}
 	</style>
 </head>
 <body>
