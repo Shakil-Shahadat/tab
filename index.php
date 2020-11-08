@@ -5,6 +5,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Tab using vanilla JavaScript</title>
 	<style>
+		.sstab
+		{
+			margin-bottom: 50px;
+		}
 		.sstab .tabs
 		{
 			display: flex;
