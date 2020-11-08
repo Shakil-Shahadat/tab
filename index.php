@@ -13,6 +13,8 @@
 		{
 			box-sizing: border-box;
 			cursor: pointer;
+			flex-grow: 1;
+			text-align: center;
 		}
 		.sstab .contents div
 		{
